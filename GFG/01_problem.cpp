@@ -9,18 +9,18 @@ using namespace std;
  int search(int arr[], int N, int X){
     bool inArr = false;
     for (int i = 0; i < N; i++) {
-            if (arr[i] == X) {
-                inArr = true;
-            }
-            
-            if(inArr) {
-                return i;
-            }
+        if (arr[i] == X) {
+            inArr = true;
         }
-        if (!inArr) {
-            return -1;
+        
+        if(inArr) {
+            return i;
         }
-}
+    }
+    if (!inArr) {
+        return -1;
+    }
+};
 
 int main() {
     int n;
