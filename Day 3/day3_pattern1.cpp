@@ -13,5 +13,29 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
 
+    int i = 0;
+    while (i < n) {
+        int j = 1;
+        while (j <= n - i) {
+            cout << j << " ";
+            j++;
+        }
+
+        int k = 0;
+        while (k < i) {
+            cout << "* * ";
+            k++;
+        }
+
+        int l = n - i;
+        while (l > 0) {
+            cout << l << " ";
+            l--;
+        }
+
+        cout << endl;
+        i++;
+    };
+
     // code here
 }
