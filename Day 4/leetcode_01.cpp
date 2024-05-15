@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+// Subtract the Product and Sum of Digits of an Integer
+
 int main() {
     int n = 234;
 
