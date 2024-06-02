@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+int hashArr[10000000];
+
 int main() {
     int n;
     cin >> n;
@@ -11,7 +13,7 @@ int main() {
     }
 
     // Pre-computation
-    int hash[13] = {0}; //array size is equal to max number + 1
+    int hash[1000000] = {0}; //array size is equal to max number + 1
     for (int i = 0; i < n; i++)
     {
         hash[arr[i]] += 1;
