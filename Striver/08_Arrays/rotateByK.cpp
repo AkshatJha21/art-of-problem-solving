@@ -21,6 +21,12 @@ void rotateArray(int arr[], int n, int d) {
         
 }
 
+void altRotate(int arr[], int n, int d){
+    reverse(arr, arr + d);
+    reverse(arr + d, arr + n);
+    reverse(arr, arr + n);
+}
+
 int main() {
     int n;
     cin >> n;
@@ -34,7 +40,7 @@ int main() {
     int d;
     cin >> d;
 
-    rotateArray(arr, n, d);
+    altRotate(arr, n, d);
     
     for (int i = 0; i < n; i++)
     {
