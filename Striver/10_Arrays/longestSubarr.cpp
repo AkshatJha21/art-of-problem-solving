@@ -3,6 +3,7 @@
 #include <map>
 using namespace std;
 
+// FOR NEGATIVE AND POSTIVE NUMBERS
 int longestSubarray(vector<int> a, long long k) {
     map<long long, int> preSumMap;
     long long sum = 0;
@@ -27,6 +28,27 @@ int longestSubarray(vector<int> a, long long k) {
     return maxLen;
 }
 
+// FOR POSITIVES
+int optimalSolution(vector<int> a, long long k) {
+    int left = 0, right = 0;
+    long long sum = a[0];
+    int maxLen = 0;
+    int n = a.size();
+
+    while (right < n) {
+        while (left <= right && sum > k) {
+            sum -= a[left];
+            left++;
+        }
+        if (sum == k) {
+            maxLen = max(maxLen, right - left + 1);
+        }
+        right++;
+        sum += a[right];
+    }
+    return maxLen;
+}
+
 int main() {
     int n;
     cin >> n;
@@ -42,6 +64,6 @@ int main() {
     long long k;
     cin >> k;
 
-    cout << longestSubarray(arr, k) << endl;
+    cout << optimalSolution(arr, k) << endl;
     
 }
