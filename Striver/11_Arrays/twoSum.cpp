@@ -3,6 +3,25 @@
 #include<vector>
 using namespace std;
 
+void twoSum(vector<int> &arr, int sum) {
+    map<int, int> mpp;
+    int n = arr.size();
+    bool yes = false;
+    for (int i = 0; i < n; i++)
+    {
+        int a = arr[i];
+        int rem = sum - a;
+        if(mpp.find(rem) != mpp.end()) {
+            yes = true;
+            cout << mpp[rem] << " " << i << endl;
+        }
+        mpp[a] = i;
+    }
+    if (!yes) {
+        cout << "-1 -1" << endl;
+    }
+}
+
 int main() {
     int n;
     cin >> n;
@@ -36,5 +55,7 @@ int main() {
     } else {
         cout << "no" << endl;
     }
+
+    twoSum(arr, sum);
     
 }
