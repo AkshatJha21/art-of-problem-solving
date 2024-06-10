@@ -22,6 +22,23 @@ void twoSum(vector<int> &arr, int sum) {
     }
 }
 
+string sumOfTwo(int n, vector<int> arr, int sum) {
+    int left = 0, right = n - 1;
+    sort(arr.begin(), arr.end());
+    while (left < right)
+    {
+        int add = arr[left] + arr[right];
+        if (add == sum) {
+            return "Yes";
+        } else if (add < sum) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    return "No";
+}
+
 int main() {
     int n;
     cin >> n;
@@ -57,5 +74,7 @@ int main() {
     }
 
     twoSum(arr, sum);
+
+    cout << sumOfTwo(n, arr, sum) << endl;
     
 }
