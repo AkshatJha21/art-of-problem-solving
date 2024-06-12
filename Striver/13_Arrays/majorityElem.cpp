@@ -17,6 +17,33 @@ int majorityElement(vector<int> arr) {
     return -1;
 }
 
+int optimalMajority(vector<int> arr) {
+    int count = 0;
+    int elem;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (count == 0) {
+            count = 1;
+            elem = arr[i];
+        } else if (arr[i] == elem) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    int major = 0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == elem) {
+            major++;
+        }
+    }
+    if (major > (arr.size() / 2)) {
+        return elem;
+    }
+    return -1;
+}
+
 int main() {
     int n;
     cin >> n;
