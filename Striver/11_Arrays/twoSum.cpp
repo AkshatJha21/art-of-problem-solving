@@ -22,15 +22,15 @@ void twoSum(vector<int> &arr, int sum) {
     }
 }
 
-string sumOfTwo(int n, vector<int> arr, int sum) {
+string sumOfTwo(int n, vector<int> book, int target) {
     int left = 0, right = n - 1;
-    sort(arr.begin(), arr.end());
+    sort(book.begin(), book.end());
     while (left < right)
     {
-        int add = arr[left] + arr[right];
-        if (add == sum) {
+        int add = book[left] + book[right];
+        if (add == target) {
             return "Yes";
-        } else if (add < sum) {
+        } else if (add < target) {
             left++;
         } else {
             right--;
