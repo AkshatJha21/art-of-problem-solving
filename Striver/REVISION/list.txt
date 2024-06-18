@@ -1,2 +1,3 @@
 Longest Subarray with sum k,
-Missing number in array
+Missing number in array,
+Maximum Consecutive Ones
