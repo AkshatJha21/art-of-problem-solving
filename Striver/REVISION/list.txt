@@ -1,3 +1,4 @@
 Longest Subarray with sum k,
 Missing number in array,
-Maximum Consecutive Ones
+Maximum Consecutive Ones,
+Single Occurence
