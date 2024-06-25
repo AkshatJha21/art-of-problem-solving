@@ -35,13 +35,13 @@ int longestConsecutiveSequence(vector<int> &arr) {
 int main() {
     int n;
     cin >> n;
-    vector<int> arr;
+    vector<int> a;
 
     for (int i = 0; i < n; i++) {
         int num;
         cin >> num;
-        arr.push_back(num);
+        a.push_back(num);
     }
 
-    cout << longestConsecutiveSequence(arr) << endl;
+    cout << longestConsecutiveSequence(a) << endl;
 }
