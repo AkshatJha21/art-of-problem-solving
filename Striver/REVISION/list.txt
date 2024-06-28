@@ -1,3 +1,2 @@
 Longest Subarray with sum k,
-Maximum Consecutive Ones,
-Single Occurrence
+Maximum Consecutive Ones
