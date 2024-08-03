@@ -85,6 +85,29 @@ Node* insertAtPosition(Node* head, int k, int value) {
     return head;
 }
 
+// Value Insertion
+Node* insertBeforeValue(Node* head, int value, int item) {
+    if (head == NULL) {
+        return NULL;
+    }
+    if (head->data == value) {
+        Node* headNew = new Node(item);
+        headNew->next = head;
+        return headNew;
+    }
+    Node* temp = head;
+    while (temp->next != NULL) {
+        if (temp->next->data == value) {
+            Node* x = new Node(item);
+            x->next = temp->next;
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    } 
+    return head;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(13);
@@ -94,6 +117,6 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToLL(arr);
-    head = insertAtPosition(head, 6, 100);
+    head = insertBeforeValue(head, 7, 100);
     printLL(head);
 }
