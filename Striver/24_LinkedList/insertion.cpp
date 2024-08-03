@@ -56,6 +56,35 @@ Node* insertTail(Node* head, int value) {
     return head;
 }
 
+// Position Insertion
+Node* insertAtPosition(Node* head, int k, int value) {
+    if (head == NULL) {
+        if (k == 1) {
+            return new Node(value);
+        } else {
+            return head;
+        }
+    }
+    if (k == 1) {
+        Node* newHead = new Node(value);
+        newHead->next = head;
+        return newHead;
+    }
+    int count = 0;
+    Node* temp = head;
+    while(temp != NULL) {
+        count++;
+        if (count == k - 1) {
+            Node* x = new Node(value);
+            x->next = temp->next;
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(13);
@@ -65,6 +94,6 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToLL(arr);
-    head = insertTail(head, 100);
+    head = insertAtPosition(head, 6, 100);
     printLL(head);
 }
