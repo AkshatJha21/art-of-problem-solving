@@ -42,9 +42,6 @@ Node* removeTail(Node* head) {
 Node* removeItem(Node* head, int k) {
     if (head == NULL) return head;
     if (k == 1) {
-        Node* temp = head;
-        head = head->next;
-        delete temp;
         return head;
     }
     int count = 0;
@@ -60,6 +57,29 @@ Node* removeItem(Node* head, int k) {
         prev = temp;
         temp = temp->next;
     } 
+    return head;
+}
+
+// Value Deletion
+Node* removeValue(Node* head, int value) {
+    if (head == NULL) return NULL;
+    if (head->data == value) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        return head;
+    }
+    Node* temp = head;
+    Node* prev = NULL;
+    while(temp != NULL) {
+        if (temp->data == value) {
+            prev->next = prev->next->next;
+            delete temp;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
     return head;
 }
 
@@ -92,6 +112,6 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToLL(arr);
-    head = removeItem(head, 3);
+    head = removeValue(head, 4);
     printLL(head);
 }
