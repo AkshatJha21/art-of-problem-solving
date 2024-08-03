@@ -42,6 +42,20 @@ Node* insertHead(Node* head, int value) {
     return temp;
 }
 
+// Tail Insertion
+Node* insertTail(Node* head, int value) {
+    if (head == NULL) {
+        return new Node(value);  
+    }
+    Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    Node* tail = new Node(value);
+    temp->next = tail;
+    return head;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(13);
@@ -51,6 +65,6 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToLL(arr);
-    head = insertHead(head, 100);
+    head = insertTail(head, 100);
     printLL(head);
 }
