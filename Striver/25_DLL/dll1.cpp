@@ -121,11 +121,27 @@ void deleteNode(Node* temp) {
     delete temp;
 }
 
-// Head Insertion
+// Before Head Insertion
 Node* insertHead(Node* head, int val) {
     Node* newHead = new Node(val, head, nullptr);
     head->back = newHead;
     return newHead;
+}
+
+// Before Tail Insertion
+Node* insertTail(Node* head, int val) {
+    if (head->next == NULL) {
+        return insertHead(head, val);
+    }
+    Node* tail = head;
+    while (tail->next != NULL) {
+        tail = tail->next;
+    }   
+    Node* prev = tail->back;
+    Node* newNode = new Node(val, tail, prev);
+    prev->next = newNode;
+    tail->back = newNode;
+    return head;
 }
 
 int main() {
@@ -136,7 +152,7 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToDLL(arr);
-    head = insertHead(head, 3);
+    head = insertTail(head, 3);
     printDLL(head);
 
     return 0;
