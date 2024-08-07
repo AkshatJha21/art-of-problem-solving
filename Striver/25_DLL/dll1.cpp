@@ -144,6 +144,25 @@ Node* insertTail(Node* head, int val) {
     return head;
 }
 
+// Before Position Insertion
+Node* insertPosition(Node* head, int val, int k) {
+    if (k == 1) {
+        return insertHead(head, val);
+    }
+    Node* temp = head;
+    int count = 0;
+    while (temp != NULL) {
+        count++;
+        if (count == k) break;
+        temp = temp->next;
+    }
+    Node* prev = temp->back;
+    Node* newNode = new Node(val, temp, prev);
+    prev->next = newNode;
+    temp->back = newNode;
+    return head;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(2);
@@ -152,7 +171,7 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToDLL(arr);
-    head = insertTail(head, 3);
+    head = insertPosition(head, 1, 4);
     printDLL(head);
 
     return 0;
