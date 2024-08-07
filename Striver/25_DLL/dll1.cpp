@@ -163,6 +163,15 @@ Node* insertPosition(Node* head, int val, int k) {
     return head;
 }
 
+// Before Node Insertion
+void insertNode(Node* node, int val) {
+    Node* prev = node->back;
+    Node* newNode = new Node(val, node, prev);
+    prev->next = newNode;
+    node->back = newNode;
+    return;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(2);
@@ -171,7 +180,8 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToDLL(arr);
-    head = insertPosition(head, 1, 4);
+    // head = insertPosition(head, 1, 4);
+    insertNode(head->next->next, 0);
     printDLL(head);
 
     return 0;
