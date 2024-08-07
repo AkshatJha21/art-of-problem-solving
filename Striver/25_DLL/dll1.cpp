@@ -121,6 +121,13 @@ void deleteNode(Node* temp) {
     delete temp;
 }
 
+// Head Insertion
+Node* insertHead(Node* head, int val) {
+    Node* newHead = new Node(val, head, nullptr);
+    head->back = newHead;
+    return newHead;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(2);
@@ -129,8 +136,7 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToDLL(arr);
-    // head = deletePosition(head, 3);
-    deleteNode(head->next);
+    head = insertHead(head, 3);
     printDLL(head);
 
     return 0;
