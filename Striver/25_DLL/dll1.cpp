@@ -103,6 +103,24 @@ Node* deletePosition(Node* head, int k) {
     return head;
 }
 
+// Node Deletion
+void deleteNode(Node* temp) {
+    Node* prev = temp->back;
+    Node* front = temp->next;
+
+    if (front == NULL) {
+        prev->next = nullptr;
+        temp->back = nullptr;
+        delete temp;
+        return;
+    }
+    prev->next = front;
+    front->back = prev;
+
+    temp->next = temp->back = nullptr;
+    delete temp;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(2);
@@ -111,7 +129,8 @@ int main() {
     arr.push_back(7);
 
     Node* head = convertArrToDLL(arr);
-    head = deletePosition(head, 3);
+    // head = deletePosition(head, 3);
+    deleteNode(head->next);
     printDLL(head);
 
     return 0;
