@@ -42,6 +42,21 @@ void printDLL(Node* head) {
     cout << endl;
 }
 
+Node* reverseDLL(Node* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    Node* last = NULL;
+    Node* current = head;
+    while (current != NULL) {
+        last = current->prev;
+        current->prev = current->next;
+        current->next = last;
+        current = current->prev;
+    }
+    return last->prev;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(1);
@@ -50,6 +65,7 @@ int main() {
     arr.push_back(4);
 
     Node* head = convertArrToDLL(arr);
+    head = reverseDLL(head);
     printDLL(head);
     return 0;
 }
