@@ -42,6 +42,8 @@ void printDLL(Node* head) {
     cout << endl;
 }
 
+// Reverse a DLL
+
 Node* reverseDLL(Node* head) {
     if (head == NULL || head->next == NULL) {
         return head;
