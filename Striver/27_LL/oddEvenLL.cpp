@@ -39,13 +39,34 @@ void printLL(Node* head) {
     cout << endl;
 }
 
+Node* oddEvenLL(Node* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    Node* odd = head;
+    Node* even = head->next;
+    Node* evenHead = head->next;
+    while (even != NULL && even->next != NULL) {
+        odd->next = odd->next->next;
+        even->next = even->next->next;
+
+        odd = odd->next;
+        even = even->next;
+    }
+    odd->next = evenHead;
+    return head;
+}
+
 int main() {
     vector<int> arr;
     arr.push_back(1);
-    arr.push_back(1);
-    arr.push_back(1);
-    arr.push_back(1);
+    arr.push_back(2);
+    arr.push_back(3);
+    arr.push_back(4);
+    arr.push_back(5);
+
     Node* head = convertArrToLL(arr);
+    head = oddEvenLL(head);
     printLL(head);
     return 0;
 }
