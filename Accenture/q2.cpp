@@ -26,7 +26,7 @@ string removeDuplicates(const string &s) {
 int main() {
     string input;
     cout << "Enter string: " << endl;
-    cin >> input;
+    getline(cin, input);
 
     string ans = removeDuplicates(input);
     cout << ans << endl;
