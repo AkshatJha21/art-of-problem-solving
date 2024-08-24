@@ -18,3 +18,37 @@
 // abcabcdabc
 // Output:
 // 2
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int maxOperations(string s) {
+    int op = 0;
+
+    while (!s.empty()) {
+        int n = s.length();
+        bool found = false;
+
+        for(int i = 1; i <= n / 2; ++i) {
+            if (s.substr(0, i) == s.substr(i, i)) {
+                s = s.substr(i);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            s = s.substr(1);
+        }
+        op++;
+    }
+    return op;
+}
+
+int main() {
+    string s;
+    cin >> s;
+
+    cout << maxOperations(s) << endl;
+    return 0;
+}
