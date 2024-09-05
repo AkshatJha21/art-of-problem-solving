@@ -26,6 +26,54 @@ void rearrangeSigns(vector<int> &arr) {
     
 }
 
+void method2(vector<int> &arr) {
+    vector<int> pos, neg;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] < 0) {
+            neg.push_back(arr[i]);
+        } else {
+            pos.push_back(arr[i]);
+        }
+    }
+
+    if (pos.size() > neg.size()) {
+        for (int i = 0; i < neg.size(); i++)
+        {
+            arr[2 * i] = pos[i];
+            arr[2 * i + 1] = neg[i];
+        }
+
+        int index = neg.size() * 2;
+        for (int i = neg.size(); i < pos.size(); i++)
+        {
+            arr[index] = pos[i];
+            index++;
+        }
+        
+        
+    } else {
+        for (int i = 0; i < pos.size(); i++)
+        {
+            arr[2 * i] = pos[i];
+            arr[2 * i + 1] = neg[i];
+        }
+
+        int index = pos.size() * 2;
+        for (int i = pos.size(); i < neg.size(); i++)
+        {
+            arr[index] = neg[i];
+            index++;
+        }
+    }
+    
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
 
     int n;
@@ -39,7 +87,7 @@ int main() {
         arr.push_back(num);
     }
     
-    rearrangeSigns(arr);
+    method2(arr);
 
     return 0;
 }
